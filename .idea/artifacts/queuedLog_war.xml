@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="queuedLog:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="queuedLog.war">
+      <element id="artifact" artifact-name="queuedLog:war exploded" />
+    </root>
+  </artifact>
+</component>

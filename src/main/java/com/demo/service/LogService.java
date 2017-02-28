@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 /**
  * Created by huangsiqian on 2017/2/28 0028.
  */
-@Controller
+//@Controller
 public interface LogService {
 
     void insertLogA(Log log);

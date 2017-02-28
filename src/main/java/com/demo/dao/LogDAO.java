@@ -2,11 +2,16 @@ package com.demo.dao;
 
 import com.demo.model.Log;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by huangsiqian on 2017/2/28 0028.
  */
-@Component
+//@Repository
+@Transactional(propagation= Propagation.REQUIRES_NEW,readOnly=false,isolation= Isolation.DEFAULT)
 public interface LogDAO {
 
     void insertLogA(Log log);

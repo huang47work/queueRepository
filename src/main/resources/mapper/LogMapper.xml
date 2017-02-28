@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="dao.LogDAO" >
-  <resultMap id="BaseResultMap" type="entity.Log" >
+<mapper namespace="com.demo.dao.LogDAO" >
+  <resultMap id="BaseResultMap" type="com.demo.model.Log" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="accountA" property="accountA" jdbcType="VARCHAR" />
     <result column="accountB" property="accountB" jdbcType="VARCHAR" />
@@ -36,7 +36,7 @@
     delete from logb
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insertLogA" parameterType="entity.Log" >
+  <insert id="insertLogA" parameterType="com.demo.model.Log" >
     insert into loga
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -71,7 +71,7 @@
   </insert>
 
 
-  <insert id="insertLogB" parameterType="entity.Log" >
+  <insert id="insertLogB" parameterType="com.demo.model.Log" >
     insert into logb
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

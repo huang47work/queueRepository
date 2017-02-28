@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * Created by huangsiqian on 2017/2/28 0028.
  */
 
-@Service
+@Service("logServiceImpl")
 public class LogServiceImpl implements LogService {
     @Autowired
     LogDAO logDAO ;

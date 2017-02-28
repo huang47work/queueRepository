@@ -15,10 +15,10 @@ public class LogServiceTest {
     static LogService logService;
 
     static {
-        String[] xmls=new String[]{"classpath:applicationContext.xml"};
+        String[] xmls=new String[]{"spring-mvc.xml","classpath:spring-mybatis.xml"};
         ApplicationContext context = new ClassPathXmlApplicationContext(xmls);
         BeanFactory factory = new ClassPathXmlApplicationContext(xmls);
-        logService = (LogService) factory.getBean("logServiceImpl");
+        logService = (LogService) context.getBean("logServiceImpl");
     }
     @Test
     public void testLogAInsert() {

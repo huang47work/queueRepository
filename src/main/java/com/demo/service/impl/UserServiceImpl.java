@@ -14,7 +14,7 @@ import com.demo.service.UserService;
 public class UserServiceImpl implements UserService{
  
     @Autowired
-    @Qualifier("userDAO")
+//    @Qualifier("userDAO")
     private UserDAO userDAO;
      
     public int insertUser(User user) {

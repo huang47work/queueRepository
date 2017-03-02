@@ -18,11 +18,22 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
 
+  <select id="getLogAForUpdate" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+--     BEGIN
+    select
+    <include refid="Base_Column_List" />
+    from loga
+    where id = #{id,jdbcType=INTEGER} FOR UPDATE
+--     COMMIT
+  </select>
+
+
+
   <select id="getLogB" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
     <include refid="Base_Column_List" />
     from logb
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER} FOR UPDATE
   </select>
 
 
@@ -68,6 +79,7 @@
       </if>
         0
     </trim>
+--     FOR UPDATE
   </insert>
 
 
@@ -103,6 +115,23 @@
       </if>
       0
     </trim>
+--     FOR UPDATE
   </insert>
+
+  <update id="updateLogA" parameterType="com.demo.model.Log" >
+    update loga
+    <set >
+      <if test="accountA != null" >
+        accountA = #{accountA,jdbcType=VARCHAR},
+      </if>
+      <if test="accountB != null" >
+        accountB = #{accountB,jdbcType=VARCHAR},
+      </if>
+      <if test="moneyChange != null" >
+        money_change = #{moneyChange,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 
 </mapper>

@@ -38,12 +38,26 @@ public class LogDAOTest {
 
     @Test
     public void getLogATest() {
-        System.out.println(logDAO.getLogA(1));
+        System.out.println(logDAO.getLogA(3));
+    }
+
+    @Test
+    public void getLogAForUpdateTest() {
+        System.out.println(logDAO.getLogAForUpdate(2));
     }
 
     @Test
     public void deleteLogATest() {
-        logDAO.deleteLogAWithId(1);
+        logDAO.deleteLogAWithId(2);
+    }
+
+    @Test
+    public void testUpdateLog() {
+        Log log = new Log();
+        log.setAccountA("mason123");
+        log.setAccountB("owei");
+        log.setId(2);
+        logDAO.updateLogA(log);
     }
 
 

@@ -155,11 +155,11 @@
 		</dependency>
 		<!-- logback end -->
 
-		<!--<dependency>
+		<dependency>
 			<groupId>servletapi</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.4-20040521</version>
-		</dependency>-->
+		</dependency>
 
 	</dependencies>
 	<build>

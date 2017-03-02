@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Created by huangsiqian on 2017/2/28 0028.
  */
-//@Repository
+@Repository
 @Transactional(propagation= Propagation.REQUIRES_NEW,readOnly=false,isolation= Isolation.DEFAULT)
 public interface LogDAO {
 
@@ -18,13 +18,19 @@ public interface LogDAO {
 
     Log getLogA(Integer id);
 
+    Log getLogAForUpdate(Integer id);
+
     void deleteLogAWithId(Integer id);
 
+    void updateLogA(Log log);
 
     void deleteLogBWithId(Integer id);
 
     void insertLogB(Log log);
 
     Log getLogB(Integer id);
+
+
+
 
 }

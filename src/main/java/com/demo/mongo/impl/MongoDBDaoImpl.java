@@ -200,6 +200,7 @@ public class MongoDBDaoImpl implements MongoDBDao {
                 }finally{
                     if(null != db){
 //                        db.requestDone();   //请求结束后关闭db
+                        db=null;
                     }
                 }
                 return (resultString != null) ? false : true;
@@ -209,7 +210,7 @@ public class MongoDBDaoImpl implements MongoDBDao {
     }
 
     @Override
-    public boolean isExit(String dbName, String collectionName, String key,
+    public boolean isExist(String dbName, String collectionName, String key,
                           Object value) {
         // TODO Auto-generated method stub
         DB db = null;
@@ -252,13 +253,13 @@ public class MongoDBDaoImpl implements MongoDBDao {
             return true;
         }else{
             try {
-                db = mongoClient.getDB(dbName); //获取数据库实例
-                dbCollection = db.getCollection(collectionName);    //获取数据库中指定的collection集合
+                db = mongoClient.getDB(dbName);
+                dbCollection = db.getCollection(collectionName);
 
                 result = dbCollection.update(oldValue, newValue);
 //                resultString = result.getError();
 
-                return (resultString!=null) ? false : true;
+                return (result!=null) ? false : true;
             } catch (Exception e) {
                 // TODO: handle exception
                 e.printStackTrace();
@@ -270,7 +271,6 @@ public class MongoDBDaoImpl implements MongoDBDao {
             }
 
         }
-
         return false;
     }
 

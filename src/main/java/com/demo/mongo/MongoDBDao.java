@@ -97,5 +97,5 @@ public interface MongoDBDao {
      * @param value
      * @return
      */
-    public boolean isExit(String dbName, String collectionName, String key, Object value);
+    public boolean isExist(String dbName, String collectionName, String key, Object value);
 }
